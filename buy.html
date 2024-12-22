@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Product Order Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            height: auto;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        form {
+            width: 580px;
+            padding: 20px;
+            background: #fdfafa;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        #pincode, #number, #quantity {
+            width: 20vh;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        p{
+            font-size: 1.2rem;
+        }
+        .payment-links a{
+            display: inline-block;
+            margin-right: 10px;
+            color: #0056b3;
+            font-size: 1.2rem;
+
+        }
+        .button {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .button-group input {
+            width: 48%;
+            padding: 10px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button-group input:hover {
+            background-color: #0056b3;
+        }
+
+        .button-group input[type="reset"] {
+            background-color: #dc3545;
+        }
+
+        .button-group input[type="reset"]:hover {
+            background-color: #b02a37;
+        }
+        #success-message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            display: none; 
+        }
+    </style>
+    <div class="container">
+        <section class="orderform">
+            <form id="order">
+                <h2>Product Order Form</h2>
+                <label for="username">Full Name</label>
+                <input type="text" id="username" placeholder="Full Name" required />
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="ex:abc@gmail.com" required />
+
+                <label for="number">Contact No.</label>
+                <input type="number" id="number" placeholder="Contact No." required />
+
+                <label for="pincode">Pincode</label>
+                <input type="number" id="pincode" placeholder="Pincode" required />
+
+                <label for="number">Quantity</label>
+                <input type="number" id="quantity" placeholder="" required >
+
+                <label for="address">Shipping Address</label>
+                <textarea id="address" name="address" cols="30" rows="3" placeholder="Enter your address"></textarea>
+
+                <label for="country">Country</label>
+                <input type="text" id="country" placeholder="Country" required />
+
+                <label for="state">State</label>
+                <input type="text" id="state" placeholder="State" required />
+
+                <label for="city">City</label>
+                <input type="text" id="city" placeholder="City" required />
+                <p>Payment Method :</p>
+                <div class="payment-links">
+               <a href="#payment">Online Pay</a>
+               <a href="success.html">Cash on Delivery</a> </div>
+            </form>
+        </section>
+        <section class="pay">
+            <form id="payment">
+                <h2>PAYMENT DETAILS: </h2>
+                <label for="cardtype">Card Type: *</label>
+                <select name="cardtype" id="cardtype" required >
+                    <option value="Visa">Visa</option>
+                    <option value="Mastercard">Mastercard</option>
+                    <option value="Rupay">Rupay</option>
+                </select>
+
+                <label for="cardnumber">Card Number: *</label>
+                <input type="number" name="cardnumber" id="cardnumber" required />
+
+                <label for="expirationDate">Expiration Date: *</label>
+                <input type="date" name="expirationDate" id="expirationDate" required />
+
+                <label for="CVV">CVV *</label>
+                <input type="password" name="CVV" id="CVV" required />
+
+                <div class="button-group">
+                    <input type="button" value="PAY NOW" id="pay-now">
+                    <input type="reset" value="RESET">
+                </div>
+            </form>
+        </section>
+
+        <!-- Success Message -->
+        <div id="success-message" aria-live="polite">Order submitted successfully!</div>
+    </div>
+
+    <script>
+        document.getElementById('pay-now').addEventListener('click', function () {
+            // Simulate form submission
+            const successMessage = document.getElementById('success-message');
+
+            // Show the success message
+            successMessage.style.display = 'block';
+
+            // Optionally hide the message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+        </script>
+        </body>
+            
+    </html>
